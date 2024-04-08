@@ -12,17 +12,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Telerik.Windows.Controls;
 
 namespace DatabaseMSWpfApp
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : RadRibbonWindow
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void RadRibbonButton_Click(object sender, RoutedEventArgs e)
+        {
+            RadTabItem tTab = MainTabControl.SelectedItem as RadTabItem;
+            SignalGridView signalGrid = new SignalGridView();
+            tTab.Content = signalGrid;
+            MainTabControl.Items.Add(tTab);
+            MainTabControl.SelectedItem = tTab;
+
+
+        }
+
+        private void MainTabControl_SelectionChanged(object sender, RadSelectionChangedEventArgs e)
+        {
+            if (MainTabControl.SelectedItem != null)
+            {
+                RadTabItem tTab = MainTabControl.SelectedItem as RadTabItem;
+            }
         }
     }
 }

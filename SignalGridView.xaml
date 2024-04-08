@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:local="clr-namespace:DatabaseMSWpfApp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -11,8 +12,8 @@
             <ColumnDefinition Width="35*"></ColumnDefinition>
             <ColumnDefinition Width="65*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <DataGrid >
+        <!--<Grid Grid.Column="0">
+            --><!--<DataGrid >
                 <GridView x:Name="SignalDatas">
                     <GridView.Columns>
                         <GridViewColumn Header="序号"></GridViewColumn>
@@ -22,7 +23,17 @@
                         <GridViewColumn Header="国家"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
-            </DataGrid>
-        </Grid>
+            </DataGrid>--><!--
+            
+        </Grid>-->
+        <telerik:RadGridView Grid.Column="0" x:Name="SignalDatas" SelectionUnit="FullRow">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="序号"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="型号"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="平台"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="用途"></telerik:GridViewDataColumn>
+                <telerik:GridViewDataColumn Header="国家"></telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
     </Grid>
 </UserControl>
